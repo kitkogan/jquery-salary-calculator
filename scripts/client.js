@@ -31,20 +31,26 @@ function addEmployeeInfo() {
     displayEmployeeInfo();
 }//end addItem
 
+
+
 function displayEmployeeInfo() {
     console.log('in displayEmployeeInfo');
-    let monthlyCosts = 0
-    monthlyCosts += $(employee[i].annualSalary);
+    let monthlyCosts = 0;
+    
     //select output element
     let el = $('#infoOut');
     //empty output element
     el.empty();
     //loop through array
     for(let i = 0; i < employees.length; i++) {
-        
+        monthlyCosts += Number(employees[i].annualSalary);
         //append each item to DOM
         el.append(`<li>${employees[i].annualSalary}</li>`);
         //monthlyCosts +
-        console.log('monthlyCosts', monthlyCosts);
+        console.log('monthly costs total: ', monthlyCosts);
     }//end for loop
+
+    if(monthlyCosts == '20000') {
+        
+    }//end if
 }//end displayEmployeeInfo
