@@ -50,7 +50,8 @@ function displayEmployeeInfo() {
         console.log('monthly costs total: ', monthlyCosts);
     }//end for loop
 
-    
+    el = $('#costOut');
+    el.empty();
     el.append(`<div class=monthlyCosts> Total Monthly Costs: $${monthlyCosts} </div>`);
     if(monthlyCosts >= 20000) {
         $('.monthlyCosts').css('background-color', 'red');
@@ -63,10 +64,10 @@ function displayEmployeeInfo() {
 
 function removeEmployee() {
     console.log('in removeEmployee fucntion');
-    //el = $(this);
+    el = $(this);
     //$(`<button id="removeEmployeeButton">Remove Employee</button>`).remove(el);
     
-    $('#infoOut').remove();
+    $(el).remove('#infoOut');
     
     
 }
