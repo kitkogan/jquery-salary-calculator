@@ -46,11 +46,16 @@ function displayEmployeeInfo() {
         monthlyCosts += Number(employees[i].annualSalary);
         //append each item to DOM
         el.append(`<li>${employees[i].annualSalary}</li>`);
+        
         //monthlyCosts +
         console.log('monthly costs total: ', monthlyCosts);
     }//end for loop
 
-    if(monthlyCosts == '20000') {
-        
+    el.append(`<div class=monthlyCosts> ${monthlyCosts} </div>`);
+    if(monthlyCosts >= 20000) {
+        $('.monthlyCosts').css('background-color', 'red');
+
     }//end if
+
+    
 }//end displayEmployeeInfo
