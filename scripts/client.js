@@ -6,7 +6,7 @@ let employees = [];
 function onReady() {
     console.log('in onReady');
     $('#submitButton').on('click', addEmployeeInfo);
-    $('#removeEmployeeButton').on('click', removeEmployee);
+    
 }//end onReady
 
 function addEmployeeInfo() {
@@ -50,18 +50,24 @@ function displayEmployeeInfo() {
         console.log('monthly costs total: ', monthlyCosts);
     }//end for loop
 
+    
     el.append(`<div class=monthlyCosts> Total Monthly Costs: $${monthlyCosts} </div>`);
     if(monthlyCosts >= 20000) {
         $('.monthlyCosts').css('background-color', 'red');
 
     }//end if
 
-    removeEmployee();
+    //removeEmployee();
+    $('#infoOut').on('click', removeEmployee);
 }//end displayEmployeeInfo
 
 function removeEmployee() {
-    console.log('in removeEmployee');
-    let el = $(this); //THIS particular employee will be removed
+    console.log('in removeEmployee fucntion');
+    //el = $(this);
+    //$(`<button id="removeEmployeeButton">Remove Employee</button>`).remove(el);
+    
+    $('#infoOut').remove();
+    
     
 }
 
