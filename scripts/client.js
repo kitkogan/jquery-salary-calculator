@@ -45,13 +45,13 @@ function displayEmployeeInfo() {
     for(let i = 0; i < employees.length; i++) {
         monthlyCosts += Number(employees[i].annualSalary);
         //append each item to DOM
-        el.append(`<li>${employees[i].annualSalary}</li>`);
+        el.append(`<li>${employees[i].firstName} ${employees[i].lastName}; ID Number: ${employees[i].idNumber}, Job Title: ${employees[i].jobTitle}, Annual Salary: $${employees[i].annualSalary} <button class="removeEmployeeButton">Remove Employee</button></li>`);
         
         //monthlyCosts +
         console.log('monthly costs total: ', monthlyCosts);
     }//end for loop
 
-    el.append(`<div class=monthlyCosts> ${monthlyCosts} </div>`);
+    el.append(`<div class=monthlyCosts> Total Monthly Costs: $${monthlyCosts} </div>`);
     if(monthlyCosts >= 20000) {
         $('.monthlyCosts').css('background-color', 'red');
 
