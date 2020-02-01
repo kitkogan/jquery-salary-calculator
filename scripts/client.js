@@ -44,7 +44,7 @@ function displayEmployeeInfo() {
     for(let i = 0; i < employees.length; i++) {
         monthlyCosts += Number(employees[i].annualSalary);
         //append each employee to DOM, plus a 'remove employee' button
-        el.append(`<li>${employees[i].firstName} ${employees[i].lastName}; ID Number: ${employees[i].idNumber}, Job Title: ${employees[i].jobTitle}, Annual Salary: $${employees[i].annualSalary} <button id="removeEmployeeButton">Remove Employee</button></li>`);
+        el.append(`<li>${employees[i].firstName} ${employees[i].lastName}; ID Number: ${employees[i].idNumber}, Job Title: ${employees[i].jobTitle}, Annual Salary: $${employees[i].annualSalary} <button class="removeEmployeeButton">Remove Employee</button></li>`);
         
         //monthlyCosts
         console.log('monthly costs total: ', monthlyCosts);
@@ -59,15 +59,15 @@ function displayEmployeeInfo() {
     }//end if
 
     //removeEmployee();
-    $('#infoOut').on('click', removeEmployee);
+    $('#infoOut').on('click', '.removeEmployeeButton',removeEmployee);
 }//end displayEmployeeInfo
 
 function removeEmployee() {
-    console.log('in removeEmployee fucntion');
+    console.log('in removeEmployee function');
     el = $(this);
     //$(`<button id="removeEmployeeButton">Remove Employee</button>`).remove(el);
     
-    $(el).remove('#infoOut');
+    $(el).remove();
     
     
 }
