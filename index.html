@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>jQuery Monthly Costs Calculator</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="vendors/jQuery.js"></script>
@@ -9,30 +9,15 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     </body>
+        <h1>Monthly Cost Sheet</h1>
+        <div id="employeeInfo">
+            <input type="text" placeholder="First Name" id="firstNameIn">
+            <input type="text" placeholder="Last Name" id="lastNameIn">
+            <input type="number" placeholder="Employee ID Number" id="employeeIdIn">
+            <input type="text" placeholder="Job Title" id="jobTitleIn">
+            <input type="number" placeholder="Annual Salary" id="annualSalaryIn">
+        </div>
         
-        <table id="employeeTable">
-             <tr>
-                <th>Employees: </th>
-            </tr>
-            <tr>
-                <th>First Name </th>
-                <th>Last Name </th>
-                <th>ID Number </th>
-                <th>Annual Salary </th>
-                <input type="text" placeholder="First Name" id="firstNameIn">
-                <input type="text" placeholder="Last Name" id="lastNameIn">
-                <input type="number" placeholder="ID Number" id="idNumberIn">
-                <input type="text" placeholder="Job Title" id="jobTitleIn">
-                <input type="number" placeholder="Annual Salary" id="annualSalaryIn">
-                <button id="submitButton">Submit</button>
-
-
-            </tr>
-        <table id="monthlyCostsTable">
-            <tr class='monthlyCostsTotal'>Total Monthly Costs: </tr> 
-         </table>
-
-        
-
+        <button id="submitButton">Submit Employee Information</button>
     </body>
 </html>
