@@ -6,11 +6,13 @@ let employees = [];
 function onReady() {
     console.log('in onReady');
     $('#submitButton').on('click', addEmployeeInfo);
+    displayEmployeeInfo();
+    $('.removeEmployeeButton').on('click', removeEmployee)
     
 }//end onReady
 
 function addEmployeeInfo() {
-    console.log('in addItem');
+    console.log('in addEmployee');
     //get user input and create a new employee object
     let employee = {
         firstName: $('#firstNameIn').val(),
@@ -34,6 +36,7 @@ function addEmployeeInfo() {
 
 function displayEmployeeInfo() {
     console.log('in displayEmployeeInfo');
+    $('.employeeRow').remove();
     let monthlyCosts = 0;
     
     //select output element
@@ -42,34 +45,39 @@ function displayEmployeeInfo() {
     el.empty();
     //loop through array
     for(let i = 0; i < employees.length; i++) {
+        let employee = employees[i];
         monthlyCosts += Number(employees[i].annualSalary);
+        $('#employeeTable').append(
+            '<tr class="employeeRow">' + '<td>' + employee.firstName + '</td>' + '<td>' + employee.lastName + '</td>' + '<td>' + employee.idNumber + '</td>' + '<td>' + employee.jobTitle + '</td>' + '<td>$' + employee.annualSalary + '</td>' + '<td><button class="removeEmployeeButton">Remove Employee</button></td>' + '</tr>' + '<tr>'+ 'monthly codt' +'</tr>'+'<td class="monthlyCosts">' + monthlyCosts + '</td>'+ '</tr>');
+        
+        
         //append each employee to DOM, plus a 'remove employee' button
-        el.append(`<li>${employees[i].firstName} ${employees[i].lastName}; ID Number: ${employees[i].idNumber}, Job Title: ${employees[i].jobTitle}, Annual Salary: $${employees[i].annualSalary} <button class="removeEmployeeButton">Remove Employee</button></li>`);
+        //el.append(`<td>${employees[i].firstName} ${employees[i].lastName}; ID Number: ${employees[i].idNumber}, Job Title: ${employees[i].jobTitle}, Annual Salary: $${employees[i].annualSalary} <button class="removeEmployeeButton">Remove Employee</button></li>`);
         
         //monthlyCosts
         console.log('monthly costs total: ', monthlyCosts);
     }//end for loop
 
-    el = $('#costOut');
-    el.empty();
-    el.append(`<div class=monthlyCosts> Total Monthly Costs: $${monthlyCosts} </div>`);
+    el = $('.monthlyCosts');
+   
+    el.append(monthlyCosts);
     if(monthlyCosts >= 20000) {
         $('.monthlyCosts').css('background-color', 'red');
-
+        el.empty();
     }//end if
 
     //removeEmployee();
-    $('#infoOut').on('click', '.removeEmployeeButton',removeEmployee);
+    $('.employeeRow').on('click', '.removeEmployeeButton', removeEmployee);
+    
 }//end displayEmployeeInfo
 
 function removeEmployee() {
     console.log('in removeEmployee function');
-    el = $(this);
+   
     //$(`<button id="removeEmployeeButton">Remove Employee</button>`).remove(el);
-    
-    $(el).remove();
+    $(this).parent().parent().remove();
+   
     
     
 }
 
-//next step: get remove employee button working

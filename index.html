@@ -8,24 +8,25 @@
         <script src="scripts/client.js"></script>
         <link rel="stylesheet" href="css/styles.css">
     </head>
-    <body>
+    </body>
         
-            <input type="text" placeholder="First Name" id="firstNameIn">
-            <input type="text" placeholder="Last Name" id="lastNameIn">
-            <input type="number" placeholder="ID Number" id="idNumberIn">
-            <input type="text" placeholder="Job Title" id="jobTitleIn">
-            <input type="number" placeholder="Annual Salary" id="annualSalaryIn">
-            <button id="submitButton">Submit</button>
-            <section>
-                <h3>Employee Annual Salaries List: </h3>
-                <ul id="infoOut"> 
-           
+        <table id="employeeTable">
+             <tr>
+                <th>Employees</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>ID</th>
+                <th>annualSalary</th>
+                <input type="text" placeholder="First Name" id="firstNameIn">
+                <input type="text" placeholder="Last Name" id="lastNameIn">
+                <input type="number" placeholder="ID Number" id="idNumberIn">
+                <input type="text" placeholder="Job Title" id="jobTitleIn">
+                <input type="number" placeholder="Annual Salary" id="annualSalaryIn">
+                <button id="submitButton">Submit</button>
+                
 
-                </ul>
-                <ul id="costOut"></ul>
-            </section>
-            
-        
+                </tr>
+            </table>
         
 
     </body>
