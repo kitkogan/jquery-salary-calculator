@@ -41,12 +41,12 @@ function calculateMonthlyCosts() {
         monthlyCosts += Number(employees[i].annualSalary);
      
     }//end if
-    el = $('.monthlyCostsTotal');
+    el = $('#monthlyCostsTable');
     el.empty();
     el.append(monthlyCosts);
     
     if(monthlyCosts >= 20000) {
-        $('.monthlyCostsTotal').css('background-color', 'red');
+        $('#monthlyCostsTabe').css('background-color', 'red');
         
 
     }
