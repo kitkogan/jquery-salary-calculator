@@ -51,6 +51,7 @@ function calculateMonthlyCosts() {
 
     }
     console.log('monthly Cost total ', monthlyCosts);
+    //addEmployeeInfo.empty();
 }//end calculateMonthly
 
 function displayEmployeeInfo() {
@@ -60,7 +61,7 @@ function displayEmployeeInfo() {
     
     //select output element
     let el = $('#infoOut');
-    
+
     //empty output element
     el.empty();
     //loop through array
