@@ -7,7 +7,7 @@ let employees = [];
 
 function onReady() {
    console.log('in onReady');
-  $('#submitButton').on('click', addEmployeeInfo)
+  $('#submitButton').on('click', addEmployeeInfo);
   displayEmployees();
 }//end onReady
 
@@ -75,11 +75,16 @@ function displayEmployees() {
     //loop through array
     for(let i = 0; i < employees.length; i++) {
         //append each item to DOM
-        el.append(`<li><b>Employee Name:</b> ${employees[i].lastName}, ${employees[i].firstName}<b>; Employee ID Number:</b> ${employees[i].employeeIdNumber}<b> Employee Job Title:</b> ${employees[i].jobTitle}<b>  Annual Salary: $</b>${employees[i].annualSalary} <button class="deleteEmployeeButton">Delete Employee</button></li>`);
+        el.append(`<li><b>Employee Name:</b> ${employees[i].lastName}, ${employees[i].firstName}<b>; Employee ID Number:</b> ${employees[i].employeeIdNumber}<b> Employee Job Title:</b> ${employees[i].jobTitle}<b>  Annual Salary: $</b>${employees[i].annualSalary} <button class="removeEmployeeButton">Remove Employee Information</button></li>`);
     }//end for
 
-    //deleteEmployee();
+    $('#employeeInfoOut').on('click', '.removeEmployeeButton', removeEmployee);
+
 }//end display employees
+
+function removeEmployee() {
+    console.log('in removeEmployee');
+}//end removeEmployee
 
 /// - test employee
 
@@ -90,3 +95,4 @@ function displayEmployees() {
 //     jobTitle: 'Software Engineer',
 //     annualSalary: 65000
 // });
+
