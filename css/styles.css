@@ -2,3 +2,42 @@
     background-color: green;
     color: white;
 }
+
+body {
+    font-family: 'Poppins', serif;
+    background-color: rgb(194, 125, 243);
+}
+
+button {
+    position: relative;
+    display: inline-block;
+    background-color: lavender;
+    color: rgb(155, 63, 150);
+  }
+  
+  button:hover {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+    }
+
+input {
+    background-color: rgb(250, 192, 255);
+    
+}
+
+
+div {
+    background-color: lavender;
+}
+
+ul {
+    color: rgb(206, 167, 243);
+    background-color: rgba(128, 10, 108, 0.63);
+    
+}
+
+li {
+    font-weight: lighter;
+    
+}
