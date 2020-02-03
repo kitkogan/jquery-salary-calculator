@@ -29,11 +29,41 @@ function addEmployeeInfo() {
 //calculates monthly costs and appends to the DOM each time a new employee is added
 function calculateMonthlyCosts() {
     console.log('in calculateMonthlyCosts');
+    let el = $('#monthlyCostsOut');
+    el.empty();
+    let annualSalarySum = 0;
+    let monthlyCosts = 0;
+    //select output element
+    //let el = $('#monthlyCostsOut');
+    //empty output element
+    //el.empty();
+    //loop through array
+    for (let j = 0; j < employees.length; j++) {
+        const employee = employees[j];
+        annualSalarySum = annualSalarySum + Number(employee.annualSalary);
+        //beginning var for calculator
+        //let monthlyCosts = 0;
+
+        //monthlyCosts = Number(employees[j].annualSalary) / (12);
+        //let totalMonthlyCosts = Number(monthlyCosts + monthlyCosts);
+        //let totalSum = 0;
+       // $('#annualSalaryIn').each(function() {
+            //totalSum += Number($(this).val());
+       // });
+    }//end for loop
+    monthlyCosts = annualSalarySum / 12;
+    monthlyCosts = Math.round(monthlyCosts * 100) / 100;
+        //let employeeMonthlySalary = Number(totalSum / 12);
+       // let totalMonthlyCosts = employeeMonthlySalary + monthlyCosts;
+        el.append(`<p>Monthly Costs: $${monthlyCosts}</p>`);
+        console.log('monthly costs: $', monthlyCosts);
+    //end for loop
 }//end calculateMonthlyCosts
 
 //appends employee input information to DOM each time a new employee is added
 function displayEmployees() {
     console.log('in display employees');
+    //$('#employeeInfo').remove();
     //select output element
     let el = $('#employeeInfoOut');
     //empty output element
@@ -44,3 +74,13 @@ function displayEmployees() {
         el.append(`<li><b>Employee Name:</b> ${employees[i].lastName}, ${employees[i].firstName}<b>; Employee ID Number:</b> ${employees[i].employeeIdNumber}<b> Employee Job Title:</b> ${employees[i].jobTitle}<b>  Annual Salary: $</b>${employees[i].annualSalary}</li>`);
     }//end for
 }//end display employees
+
+/// - test employee
+
+// employees.push ( {
+//     firstName: 'Kit',
+//     lastName: 'Kogan',
+//     employeeIdNumber: 999,
+//     jobTitle: 'Software Engineer',
+//     annualSalary: 65000
+// });
