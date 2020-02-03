@@ -21,6 +21,14 @@ function addEmployeeInfo() {
         jobTitle: $('#jobTitleIn').val(),
         annualSalary: $('#annualSalaryIn').val()
     }//end newEmployee
+
+    //empty inputs using val as a setter
+    $('#firstNameIn').val('');
+    $('#lastNameIn').val('');
+    $('#employeetIdIn').val('');
+    $('#jobTitleIn').val('');
+    $('#annualSalaryIn').val('');
+
     console.log('adding:', newEmployee);
     employees.push(newEmployee);
     displayEmployees(); //do this every time a new employee is added
@@ -30,33 +38,26 @@ function addEmployeeInfo() {
 //calculates monthly costs and appends to the DOM each time a new employee is added
 function calculateMonthlyCosts() {
     console.log('in calculateMonthlyCosts');
+    //select output el
     let el = $('#monthlyCostsOut');
+    //empty output el
     el.empty();
+    //set beginning vars
     let annualSalarySum = 0;
     let monthlyCosts = 0;
-    //select output element
-    //let el = $('#monthlyCostsOut');
-    //empty output element
-    //el.empty();
+    
     //loop through array
     for (let j = 0; j < employees.length; j++) {
         const employee = employees[j];
         annualSalarySum = annualSalarySum + Number(employee.annualSalary);
-        //beginning var for calculator
-        //let monthlyCosts = 0;
-
-        //monthlyCosts = Number(employees[j].annualSalary) / (12);
-        //let totalMonthlyCosts = Number(monthlyCosts + monthlyCosts);
-        //let totalSum = 0;
-       // $('#annualSalaryIn').each(function() {
-            //totalSum += Number($(this).val());
-       // });
+        
     }//end for loop
+    //math calculations for dividing annual salary by 12 to get monthly pay for every new employee
     monthlyCosts = annualSalarySum / 12;
     monthlyCosts = Math.round(monthlyCosts * 100) / 100;
-        //let employeeMonthlySalary = Number(totalSum / 12);
-       // let totalMonthlyCosts = employeeMonthlySalary + monthlyCosts;
+        //append monthly costs to DOM
         el.append(`<p>Monthly Costs: $${monthlyCosts}</p>`);
+        //if the monthy costs reach or exceed $20000, the color of the monthly costs output line will turn red
         if (monthlyCosts >= 20000) {
             $('#monthlyCostsOut').css('background-color', 'red');
         }
@@ -67,11 +68,13 @@ function calculateMonthlyCosts() {
 //appends employee input information to DOM each time a new employee is added
 function displayEmployees() {
     console.log('in display employees');
-    //$('#employeeInfo').remove();
+    
     //select output element
     let el = $('#employeeInfoOut');
+    
     //empty output element
     el.empty();
+    
     //loop through array
     for(let i = 0; i < employees.length; i++) {
         //append each item to DOM
@@ -84,6 +87,16 @@ function displayEmployees() {
 
 function removeEmployee() {
     console.log('in removeEmployee');
+    //display employees 
+    console.log('employees: ', employees);
+    //select output element
+    el = $(this);
+    //empty output element
+    el.empty();
+    //remove selected element from DOM
+    el.parent().remove();
+    
+    
 }//end removeEmployee
 
 /// - test employee
