@@ -8,6 +8,7 @@ let employees = [];
 function onReady() {
    console.log('in onReady');
   $('#submitButton').on('click', addEmployeeInfo)
+  displayEmployees();
 }//end onReady
 
 function addEmployeeInfo() {
@@ -56,8 +57,11 @@ function calculateMonthlyCosts() {
         //let employeeMonthlySalary = Number(totalSum / 12);
        // let totalMonthlyCosts = employeeMonthlySalary + monthlyCosts;
         el.append(`<p>Monthly Costs: $${monthlyCosts}</p>`);
+        if (monthlyCosts >= 20000) {
+            $('#monthlyCostsOut').css('background-color', 'red');
+        }
         console.log('monthly costs: $', monthlyCosts);
-    //end for loop
+    
 }//end calculateMonthlyCosts
 
 //appends employee input information to DOM each time a new employee is added
@@ -71,8 +75,10 @@ function displayEmployees() {
     //loop through array
     for(let i = 0; i < employees.length; i++) {
         //append each item to DOM
-        el.append(`<li><b>Employee Name:</b> ${employees[i].lastName}, ${employees[i].firstName}<b>; Employee ID Number:</b> ${employees[i].employeeIdNumber}<b> Employee Job Title:</b> ${employees[i].jobTitle}<b>  Annual Salary: $</b>${employees[i].annualSalary}</li>`);
+        el.append(`<li><b>Employee Name:</b> ${employees[i].lastName}, ${employees[i].firstName}<b>; Employee ID Number:</b> ${employees[i].employeeIdNumber}<b> Employee Job Title:</b> ${employees[i].jobTitle}<b>  Annual Salary: $</b>${employees[i].annualSalary} <button class="deleteEmployeeButton">Delete Employee</button></li>`);
     }//end for
+
+    //deleteEmployee();
 }//end display employees
 
 /// - test employee
