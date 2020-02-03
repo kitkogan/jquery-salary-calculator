@@ -22,19 +22,21 @@ button {
     }
 
 input {
-    background-color: rgb(250, 192, 255);
-    
+    background-color: rgb(250, 192, 255);    
 }
 
+h1 {
+    background-color: rgb(212, 95, 212);
+    text-align: center;
+}
 
 div {
     background-color: lavender;
 }
 
-ul {
+#employeeInfoOut {
     color: rgb(206, 167, 243);
     background-color: rgba(128, 10, 108, 0.63);
-    
 }
 
 li {

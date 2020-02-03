@@ -78,7 +78,7 @@ function displayEmployees() {
     //loop through array
     for(let i = 0; i < employees.length; i++) {
         //append each item to DOM
-        el.append(`<li><b>Employee Name:</b> ${employees[i].lastName}, ${employees[i].firstName}<b>; Employee ID Number:</b> ${employees[i].employeeIdNumber}<b> Employee Job Title:</b> ${employees[i].jobTitle}<b>  Annual Salary: $</b>${employees[i].annualSalary} <button class="removeEmployeeButton">Remove Employee Information</button></li>`);
+        el.append(`<li><b><u>Employee Name:</b></u> ${employees[i].lastName}, ${employees[i].firstName}<u><b>; Employee ID Number:</b></u> ${employees[i].employeeIdNumber}<u><b> Employee Job Title:</b></u> ${employees[i].jobTitle}<u><b>  Annual Salary: $</b></u>${employees[i].annualSalary} <button class="removeEmployeeButton">Remove Employee Information</button></li>`);
     }//end for
 
     $('#employeeInfoOut').on('click', '.removeEmployeeButton', removeEmployee);
